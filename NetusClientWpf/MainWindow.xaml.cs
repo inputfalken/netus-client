@@ -31,7 +31,7 @@ namespace NetusClientWpf {
         }
 
         private void OnClosed(object sender, EventArgs eventArgs) {
-            throw new NotImplementedException();
+            _netusClient.CloseConnection();
         }
 
 

@@ -26,14 +26,20 @@ namespace NetusClientWpf {
         }
 
         private async void OnLoaded(object sender, RoutedEventArgs routedEventArgs) {
-            await NetusClient.Connect();
-            Label.Content = await NetusClient.ReadMessage();
+            try {
+                await NetusClient.Connect();
+                Label.Content = await NetusClient.ReadMessage();
+            }
+            catch (Exception) {
+                MessageBox.Show("Could not establish an connection to the Server.");
+                Close();
+            }
         }
 
         private async void RegisterButtonOnClick(object sender, RoutedEventArgs routedEventArgs) {
             await NetusClient.SendMessage(UserNameBox.Text);
             MessageBox.Show(await NetusClient.ReadMessage());
-             new MainWindow(NetusClient).Show();
+            new MainWindow(NetusClient).Show();
             Close();
         }
     }

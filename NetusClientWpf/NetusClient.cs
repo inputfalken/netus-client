@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace NetusClientWpf {
-    internal class NetusClient {
+    public class NetusClient {
         private readonly string _ip;
         private readonly int _port;
         private readonly TcpClient _client;
@@ -16,6 +16,7 @@ namespace NetusClientWpf {
             _ip = ip;
             _port = port;
             _client = new TcpClient();
+            
         }
 
         public async Task Connect() => await _client.ConnectAsync(IPAddress.Parse(_ip), _port);

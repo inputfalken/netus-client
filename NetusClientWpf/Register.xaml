@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="Register" Height="300" Width="300">
     <Grid>
-        <Label x:Name="Label" Content="Label" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="272"/>
-        <TextBox x:Name="UserNameBox" HorizontalAlignment="Left" Height="23" Margin="37,136,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="RegisterButton" Content="Button" HorizontalAlignment="Left" Margin="162,136,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
-
+        <Label x:Name="Label" Content="ServerMessage" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,41,0,0"  VerticalAlignment="Top" Width="272"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <TextBox x:Name="UserNameBox" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="UserName" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="RegisterButton" Content="Sign in" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Height="23"/>
+        </StackPanel>
     </Grid>
 </Window>

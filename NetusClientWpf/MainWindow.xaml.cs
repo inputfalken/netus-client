@@ -25,8 +25,13 @@ namespace NetusClientWpf {
         public MainWindow(NetusClient netusClient) {
             InitializeComponent();
             _netusClient = netusClient;
-            Loaded += OnLoaded;
             SendBtn.Click += SendBtnOnClick;
+            Loaded += OnLoaded;
+            Closed += OnClosed;
+        }
+
+        private void OnClosed(object sender, EventArgs eventArgs) {
+            throw new NotImplementedException();
         }
 
 

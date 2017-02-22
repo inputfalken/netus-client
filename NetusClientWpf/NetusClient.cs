@@ -16,7 +16,6 @@ namespace NetusClientWpf {
             _ip = ip;
             _port = port;
             _client = new TcpClient();
-            
         }
 
         public async Task Connect() => await _client.ConnectAsync(IPAddress.Parse(_ip), _port);
@@ -28,6 +27,11 @@ namespace NetusClientWpf {
         public async Task SendMessage(string message) {
             var buffer = Encoding.ASCII.GetBytes(message + Environment.NewLine);
             await _client.GetStream().WriteAsync(buffer, 0, buffer.Length);
+        }
+
+        public void CloseConnection() {
+            _client.GetStream().Close();
+            _client.Close();
         }
     }
 }

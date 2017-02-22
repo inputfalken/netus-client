@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace NetusClientWpf {
     public class NetusClient {
+        private readonly TcpClient _client;
         private readonly string _ip;
         private readonly int _port;
-        private readonly TcpClient _client;
 
 
         public NetusClient(string ip, int port) {

@@ -43,14 +43,11 @@ namespace NetusClientWpf {
         }
 
         private async void OnLoaded(object sender, RoutedEventArgs routedEventArgs) {
-            await ListenForMessages();
+            await Task.Run(ListenForMessages);
         }
 
         private async Task ListenForMessages() {
-            while (true) {
-                var s = await Task.Run(() => _netusClient.ReadMessage());
-                AddToChatBox(s);
-            }
+            while (true) AddToChatBox(await _netusClient.ReadMessage());
         }
 
         private void AddToChatBox(string message) => ChatBox.Items.Add(message);

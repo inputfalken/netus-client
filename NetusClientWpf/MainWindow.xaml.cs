@@ -30,12 +30,15 @@ namespace NetusClientWpf {
         }
 
         private async void OnLoaded(object sender, RoutedEventArgs routedEventArgs) {
-            await Task.Run(ListenForMessages);
-                //when closing in debug mode you'll get an exception about an disposed networkstream.
+            await ListenForMessages();
+            //when closing in debug mode you'll get an exception about an disposed networkstream.
         }
 
         private async Task ListenForMessages() {
-            while (true) AddToChatBox(await _netusClient.ReadMessage());
+            while (true) {
+                var message = await Task.Run(_netusClient.ReadMessage);
+                AddToChatBox(message);
+            }
         }
 
         private void AddToChatBox(string message) => ChatBox.Items.Add(message);

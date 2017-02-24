@@ -6,7 +6,7 @@ namespace NetusClientWpf {
     ///     Interaction logic for Register.xaml
     /// </summary>
     public partial class Register : Window {
-        private static readonly NetusClient NetusClient = new NetusClient("192.168.1.90", 23000);
+        private static readonly NetusClient NetusClient = new NetusClient("10.0.2.15", 23000);
 
         public Register() {
             InitializeComponent();
